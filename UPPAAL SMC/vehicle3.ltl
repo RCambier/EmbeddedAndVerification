@@ -1,0 +1,10 @@
+#define end1 (Process.end)
+#define start (Process.Start) 
+
+#property G!(end1)
+#property G(end1) 
+#property F!(end1)
+#property F(start)
+#property true 
+ 
+
