@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'><nta><declaration>// Place global declarations here.
 clock time;
-const int sectionNbr = 5;
-const int Lengths[5] =  {610,1530,3120,290,3380};
-const int Height[5] = {10,-13,12,-16,20};   //height cannot be higher than 3640.
+const int sectionNbr = 10;
+const int Lengths[10] =  {610,1530,3120,290,3380,610,1530,3120,290,3380};   
+const int Height[10] = {10,-13,12,-16,20,10,-13,12,-16,20};   //height cannot be higher than 3640.
 
 //const int Lengths[5] =  {200,200,200,200,200};
 //const int Height[5] = {0,0,0,0,0};
@@ -12,7 +12,7 @@ int[0, 30] v1 = 0;
 int count = 0;
 const int vInit = 5;
 const int maxSpeed = 30;
-const int batteryInit = 9000; //en centaine de joules (900kJ=250Wh)
+const int batteryInit = 9000; //en centaine de joules (900kJ=250Wh)  
 int battery = 9000;
 
 
