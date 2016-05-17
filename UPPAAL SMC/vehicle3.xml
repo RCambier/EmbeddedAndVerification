@@ -68,19 +68,15 @@ int Speed(int v){
 		</location>
 		<location id="id3" x="152" y="200">
 			<name x="136" y="160">speed2</name>
-			<label kind="invariant" x="142" y="215">cost' == 1</label>
 		</location>
 		<location id="id4" x="152" y="0">
 			<name x="142" y="-30">speed4</name>
-			<label kind="invariant" x="142" y="15">cost' == 1</label>
 		</location>
 		<location id="id5" x="144" y="-160">
 			<name x="134" y="-190">speed6</name>
-			<label kind="invariant" x="134" y="-145">cost' == 1</label>
 		</location>
 		<location id="id6" x="152" y="-328">
 			<name x="142" y="-358">speed8</name>
-			<label kind="invariant" x="142" y="-313">cost' == 1</label>
 		</location>
 		<init ref="id0"/>
 		<transition>
