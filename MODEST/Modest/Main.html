@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>mime</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=10" />
+	<link rel="shortcut icon" href="App.ico" />
+	<style type="text/css">
+		html, body {
+			width: 100%;
+			height: 100%;
+			margin: 0px;
+			padding: 0px;
+			border: 0px;
+		}
+	</style>
+	<script type="text/javascript">
+		"use strict";
+		var queryString = window.location.href.substr(window.location.href.lastIndexOf("?") + 1);
+		var webSocketUrl = "ws://localhost:" + queryString + "/";
+		var socket = null;
+		var socketIsClosed = false;
+		window.onload = function()
+		{
+			// Establish websocket connection
+			var s = new WebSocket(webSocketUrl);
+			s.onopen = function()
+			{
+				socket = s;
+			};
+			s.onmessage = onmessage;
+			s.onclose = onclose;
+			s.onerror = onerror;
+		};
+
+		var messageQueue = [];
+		var messageHandlers = [];
+		function sendMessage(msg)
+		{
+			if(socketIsClosed) throw "WebSocket is closed.";
+
+			// Enqueue message
+			if(msg !== null) messageQueue.push(JSON.stringify(msg));
+
+			// See if there are messages in the queue
+			if(messageQueue.length == 0) return;
+
+			// Send all messages from the queue
+			while(socket !== null && messageQueue.length != 0)
+			{
+				socket.send(messageQueue[0]);
+				messageQueue.splice(0, 1);
+			}
+
+			// The socket is not ready, try again later
+			if(messageQueue.length != 0)
+			{
+				setTimeout(function() { sendMessage(null); }, 100);
+				return;
+			}
+		}
+
+		function closeSocket()
+		{
+			if(messageQueue.length != 0) sendMessage(null);
+			socketIsClosed = true;
+			socket.close();
+		}
+
+		function onclose()
+		{
+			socket = null;
+			if(!socketIsClosed)
+			{
+				// Try to reopen the connection
+				setTimeout(function()
+				{
+					var s = new WebSocket(webSocketUrl);
+					s.onopen = function()
+					{
+						alert("Connection is reopened.");
+					};
+					s.onmessage = onmessage;
+					s.onclose = onclose;
+					s.onerror = onerror;
+					socket = s;
+				}, 10);
+			}
+		};
+
+		function onerror()
+		{
+			alert("A WebSocket error occurred.");
+			socket = null;
+			window.close();
+		};
+
+		function onmessage(e)
+		{
+			var msg = JSON.parse(e.data);
+			if(msg.error) throw msg.error;
+			if(msg.cmd == "load-text-resource")
+			{
+				// Load JS, CSS or HTML into DOM
+				if(msg.type == "text/html")
+				{
+					var elem = document.createElement("div");
+					if(msg.parent && (msg.parentType == "tbody" || msg.parentType == "colgroup"))
+					{
+						// Table contents need special handling because .innerHTML is read-only for them (at least in IE)
+						if(msg.parentType == "tbody") elem.innerHTML = "<table><tbody>" + msg.resource + "</tbody></table>";
+						else /*if(msg.parentType == "colgroup")*/ elem.innerHTML = "<table><colgroup>" + msg.resource + "</colgroup></table>";
+						var parent = document.getElementById(msg.parent);
+						parent.parentNode.replaceChild(elem.firstChild.firstChild, parent);
+					}
+					else
+					{
+						elem.innerHTML = msg.resource;
+						var elements = elem.childNodes;
+						var parent = msg.parent ? document.getElementById(msg.parent) : document.body;
+						for(var i = 0; i < elements.length; ++i)
+						{
+							parent.appendChild(elements[i]);
+						}
+					}
+				}
+				else
+				{
+					var elem = document.createElement(msg.type == "text/javascript" ? "script" : "style");
+					elem.type = msg.type;
+					elem.innerHTML = msg.resource;
+					var parent = msg.parent ? document.getElementsByTagName("head")[0] : document.body;
+					parent.appendChild(elem);
+				}
+			}
+			else
+			{
+				// Call the registered message handlers
+				for(var i = 0; i < messageHandlers.length; ++i)
+				{
+					if(messageHandlers[i](msg)) return; // stop when the first handler accepts the message
+				}
+				alert("Unhandled message.");
+			}
+		};
+
+		function registerMessageHandler(handler)
+		{
+			messageHandlers.push(handler);
+		}
+
+		function hideSplash()
+		{
+			var splash = document.getElementById("loadingsplash");
+			$(splash).fadeOut(400, function() { splash.parentNode.removeChild(splash); });
+		}
+
+	</script>
+</head>
+<body>
+	<table id="loadingsplash" style="position:absolute; top:0px; left:0px; width: 100%; height: 100%; background-color: #F8F8F8; color: #808080; z-index: 1024; text-align: center; font-family: 'Segoe UI',Tahoma,sans-serif; font-size: 13px;">
+		<tr>
+			<td>Loading...</td>
+		</tr>
+	</table>
+</body>
+</html>

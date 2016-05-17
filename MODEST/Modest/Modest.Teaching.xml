@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Modest.Teaching</name>
+    </assembly>
+    <members>
+        <member name="T:Modest.Teaching.BuchiAutomaton">
+            <summary>
+            Represents a Büchi automaton.
+            </summary>
+        </member>
+        <member name="M:Modest.Teaching.BuchiAutomaton.#ctor(Modest.Teaching.BuchiNode)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Modest.Teaching.BuchiAutomaton"/> class.
+            </summary>
+            <param name="initialNode">The initial node of the automaton.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="initialNode"/> is <c>null</c>.</exception>
+        </member>
+        <member name="P:Modest.Teaching.BuchiAutomaton.InitialNode">
+            <summary>
+            Gets the initial node of the automaton.
+            </summary>
+        </member>
+        <member name="T:Modest.Teaching.BuchiNode">
+            <summary>
+            Represents a node in a Büchi automaton.
+            </summary>
+        </member>
+        <member name="M:Modest.Teaching.BuchiNode.#ctor(System.Boolean)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Modest.Teaching.BuchiNode"/> class with the specified edges.
+            </summary>
+            <param name="isAccepting"><c>true</c> if the node is accepting; otherwise, <c>false</c>.</param>
+        </member>
+        <member name="P:Modest.Teaching.BuchiNode.Edges">
+            <summary>
+            Gets the edges. Elements must not be changed.
+            </summary>
+        </member>
+        <member name="P:Modest.Teaching.BuchiNode.IsAccepting">
+            <summary>
+            Gets a value indicating whether the node is an accepting node.
+            </summary>
+        </member>
+        <member name="T:Modest.Teaching.BuchiEdge">
+            <summary>
+            Represents an edge in a Büchi automaton.
+            </summary>
+        </member>
+        <member name="M:Modest.Teaching.BuchiEdge.#ctor(Modest.Teaching.BuchiNode,System.Int32[],System.Int32[])">
+            <summary>
+            Initialises a new instance of the <see cref="T:Modest.Teaching.BuchiEdge"/> class.
+            </summary>
+            <param name="positiveGuard">The indices of the atomic propositions that must hold for this transition to be taken.</param>
+            <param name="negativeGuard">The indices of the atomic propositions that must not hold for this transition to be taken.</param>
+            <param name="target">The target node.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="target"/>, <paramref name="positiveGuard"/> or <paramref name="negativeGuard"/> is <c>null</c>.</exception>
+        </member>
+        <member name="P:Modest.Teaching.BuchiEdge.PositiveGuard">
+            <summary>
+            Gets the indices of the atomic propositions that must hold for this transition to be taken. Elements must not be changed.
+            </summary>
+        </member>
+        <member name="P:Modest.Teaching.BuchiEdge.NegativeGuard">
+            <summary>
+            Gets the indices of the atomic propositions that must not hold for this transition to be taken. Elements must not be changed.
+            </summary>
+        </member>
+        <member name="P:Modest.Teaching.BuchiEdge.Target">
+            <summary>
+            Gets the target node.
+            </summary>
+        </member>
+        <member name="P:Modest.Teaching.AtomicProposition.PropositionIndex">
+            <summary>
+            Gets the index of the atomic proposition.
+            </summary>
+        </member>
+        <member name="P:Modest.Teaching.BinaryOperator.LeftOperand">
+            <summary>
+            Gets the left operand.
+            </summary>
+        </member>
+        <member name="P:Modest.Teaching.BinaryOperator.RightOperand">
+            <summary>
+            Gets the right operand.
+            </summary>
+        </member>
+        <member name="T:Modest.Teaching.ModelProperty">
+            <summary>
+            Represents a property in a model.
+            </summary>
+        </member>
+        <member name="M:Modest.Teaching.ModelProperty.#ctor(System.String,Modest.Teaching.Property,Modest.Modularity.ILocation)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Modest.Teaching.ModelProperty"/> class.
+            </summary>
+            <param name="name">The name of the property.</param>
+            <param name="property">The property expression.</param>
+            <param name="location">The location of the property in the model's source.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="name"/>, <paramref name="property"/> or <paramref name="location"/> is <c>null</c>.</exception>
+        </member>
+        <member name="P:Modest.Teaching.ModelProperty.Name">
+            <summary>
+            Gets the name of the property.
+            </summary>
+        </member>
+        <member name="P:Modest.Teaching.ModelProperty.Property">
+            <summary>
+            Gets the property expression.
+            </summary>
+        </member>
+        <member name="P:Modest.Teaching.ModelProperty.Location">
+            <summary>
+            Gets the location of the property in the model's source.
+            </summary>
+        </member>
+        <member name="P:Modest.Teaching.UnaryOperator.Operand">
+            <summary>
+            Gets the operand.
+            </summary>
+        </member>
+        <member name="T:Modest.Teaching.Property">
+            <summary>
+            Abstract base class for property expressions.
+            </summary>
+        </member>
+        <member name="P:Modest.Teaching.Property.Location">
+            <summary>
+            Get the location of this property in the model's source.
+            </summary>
+        </member>
+        <member name="M:Modest.Teaching.Property.ToBuchiAutomaton">
+            <summary>
+            Converts the current LTL property to a Büchi automaton.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">The current property is not an LTL property.</exception>
+        </member>
+        <member name="T:Modest.Teaching.TransitionSystem`1.Transition">
+            <summary>
+            Represents a transition.
+            </summary>
+        </member>
+        <member name="P:Modest.Teaching.TransitionSystem`1.Transition.Label">
+            <summary>
+            Gets the label of the transition.
+            </summary>
+        </member>
+        <member name="M:Modest.Teaching.TransitionSystem`1.GetInitialState(`0@)">
+            <summary>
+            Gets the initial state of the transition system.
+            </summary>
+            <param name="initialState">The computed initial state will be saved in this parameter.</param>
+        </member>
+        <member name="M:Modest.Teaching.TransitionSystem`1.HasAtomicProposition(`0@,System.Int32)">
+            <summary>
+            Determines whether a given state satisfies an atomic proposition.
+            </summary>
+            <param name="state">The state.</param>
+            <param name="atomicPropositionIndex">The index of the atomic proposition to check.</param>
+            <returns><c>true</c> if <paramref name="state"/> satisfies the atomic proposition; otherwise, <c>false</c>.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="atomicPropositionIndex"/> is not a valid index for an atomic proposition.</exception>
+        </member>
+        <member name="M:Modest.Teaching.TransitionSystem`1.GetTransitions(`0@)">
+            <summary>
+            Gets the outgoing transitions of a given state.
+            </summary>
+            <param name="state">The state from which the transitions originate.</param>
+            <returns>The transitions originating from <paramref name="state"/>.</returns>
+        </member>
+        <member name="M:Modest.Teaching.TransitionSystem`1.GetTargetState(`0@,Modest.Teaching.TransitionSystem{`0}.Transition,`0@)">
+            <summary>
+            Gets the target state of a given transition.
+            </summary>
+            <param name="state">The state from which the transition originates.</param>
+            <param name="transition">The transition.</param>
+            <param name="targetState">The computed target state will be saved in this parameter.</param>
+        </member>
+        <member name="P:Modest.Teaching.TransitionSystem`1.AtomicPropositionCount">
+            <summary>
+            Gets the number of atomic propositions used in the properties of this transition system.
+            </summary>
+            <remarks>The indices of the atomic propositions are 0 through <see cref="P:Modest.Teaching.TransitionSystem`1.AtomicPropositionCount"/> minus one.</remarks>
+        </member>
+    </members>
+</doc>

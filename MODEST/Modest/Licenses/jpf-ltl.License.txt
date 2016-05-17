@@ -1,0 +1,1 @@
+﻿jpf-ltl.dll is based on the jpf-ltl extension to Java Pathfinder, which is licensed under the NASA Open Source Agreement version 1.3, whose full text is available at http://ti.arc.nasa.gov/opensource/nosa/.

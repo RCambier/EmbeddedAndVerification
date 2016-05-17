@@ -1,0 +1,105 @@
+﻿/*
+ * Supermarket Queue
+ *
+ * This model is based on the (partial) Modest example presented in:
+ *
+ * Pedro R. D'Argenio, Holger Hermanns, Joost-Pieter Katoen, and Ric Klaren:
+ * "MoDeST - A Modelling and Description Language for Stochastic Timed Systems"
+ * L. de Alfaro and S. Gilmore (Eds.): PAPM-PROBMIV 2001, LNCS 2165, pp. 87–104, 2001.
+ * (c) Springer-Verlag Berlin Heidelberg 2001
+ *
+ * The model describes a supermarket checkout queue where customers arrive in random
+ * intervals with a random number of items for checkout. The cashier processes the items
+ * at a certain rate. Occasionally, an item will have no price tag and therefore take
+ * a longer amount of time to process.
+ */
+
+
+// Declare action labels
+action begin_checkout, cash, set_price, get_prod, customer_departure, new_customer;
+
+// Constants
+const real set_price_time = 180.0; // Average time to get price of an untagged item
+const real arrival_time = 120.0;   // Average time between customer arrivals
+const real scan_item_time = 1.0;   // Average time to scan an item
+const int max_queue_length = 12;   // Maximum desired number of people in queue
+
+// Declare global variables
+int queue = 0; // Number of customers waiting, including the customer being served
+bool queue_was_too_long = false; // Queue has been too long (but may not be anymore)
+
+// Rate rewards
+reward idle_time, overload_time, queue_length;
+der(idle_time) = (queue == 0) ? 1 : 0; // Overall amount of time that cashier was idle
+der(overload_time) = (queue > max_queue_length) ? 1 : 0; // Overall amount of time that the queue was "too long"
+der(queue_length) = queue; // Integral of queue length over time
+
+// Properties
+property Xmin(time | queue > max_queue_length); // Expected time until there are too many people in line
+property Xmin(time | queue <= max_queue_length && queue_was_too_long); // Expected time until queue shortens after overload
+
+process Cashing()
+{
+  clock x;
+  real xd = Exponential(1.0/scan_item_time);
+
+  urgent(x >= xd) when(x >= xd) cash
+}
+
+process DeterminePrice()
+{
+  clock x;
+  real xd = Exponential(1.0/set_price_time);
+
+  urgent(x >= xd) when(x >= xd) set_price
+}
+
+process Cashier()
+{
+  do
+  {
+    :: get_prod palt
+    {
+      :49: Cashing()
+      : 1: DeterminePrice(); Cashing()
+    }
+  }
+}
+
+process Customer()
+{
+  int products = DiscreteUniform(1, 40);
+  
+  do
+  {
+    :: when(products > 0) urgent(products > 0) get_prod {= products -= 1 =}; cash
+    :: when(products == 0) urgent(products == 0) customer_departure {= queue -= 1 =}; urgent break
+  }
+}
+
+process Arrivals()
+{
+  clock x;
+  real xd = Exponential(1.0/arrival_time);
+  
+  do
+  {
+    :: when(x >= xd) urgent(x >= xd) new_customer {= queue += 1, x = 0, xd = Exponential(1.0/arrival_time),
+                                                     queue_was_too_long = queue_was_too_long || (queue > max_queue_length) =}
+  }
+}
+
+process Queue()
+{
+  do
+  {
+    :: when(queue > 0) urgent(queue > 0) begin_checkout; Customer()
+  }
+}
+
+par
+{
+  :: Cashier()
+  :: Arrivals()
+  :: Queue()
+}

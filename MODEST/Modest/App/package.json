@@ -1,0 +1,5 @@
+{
+	"name" : "mime",
+	"version" : "2.2.0",
+	"main" : "mime-app.js"
+}

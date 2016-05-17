@@ -1,0 +1,44 @@
+import spot
+import spot.ltsmin
+# The following line causes the notebook to exit with 77 if the divine is not
+# installed, therefore skipping this test in the test suite.
+spot.ltsmin.require('divine')
+# This is notebook also tests the limitation of the number of states in the GraphViz output
+spot.setup(max_states=10)
+
+--------------------------------------------------------
+
+%%dve n
+
+
+process Feu1 {
+  state vert, rouge;
+  init vert;
+  trans
+    vert -> rouge {},
+    rouge -> vert {guard Feu2.vert == 0;};
+}
+
+process Feu2 {
+  state vert, rouge;
+  init rouge;
+  trans
+    vert -> rouge {},
+    rouge -> vert {guard Feu1.vert == 0;};
+}
+
+system async;
+
+-------------------------------------------------------
+
+k = n.kripke([])
+k.show()
+
+def model_check(f, m):
+    f = spot.formula(f)
+    ss = m.kripke(spot.atomic_prop_collect(f))
+    nf = spot.formula_Not(f).translate()
+    return spot.otf_product(ss, nf).is_empty()
+
+
+model_check('[]!("Feu1.vert"&&"Feu2.vert")', n)

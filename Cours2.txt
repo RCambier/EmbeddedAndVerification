@@ -1,0 +1,45 @@
+#Verification
+
+####Linear time vs branching time semantics
+
+####Which type of relation between TS should we use ?
+####etc...
+J'ai pas suivi le debut...
+
+
+Bisimulation
+-------------
+
+On a deux transition system.
+Une bisimulation, c'est un set de tuples qui vont nous dire quels states sont reliés.
+
+Pour chacuns des states des deux systemes, ils doivent etre lies a un state de l'autre systeme.
+Pour que deux states soient similaire, il est necessaire qu'ils aient le même label. C'est pas suffisant mais c'est nécessaire.
+
+On vérifie deux states:
+- Ils ont le même label
+- Pour chaque successeur de l'un, je dois pouvoir trouver un successeur de l'autre qui lui est lié.
+- Ca doit aussi etre vrai dans l'autre sens.
+
+####Example
+#####Bisimilar machines
+On a deux states machines et on veut verifier si elles sont similaire (slide 39)
+On remarque que les deux systemes sont assez semblables.
+
+**A**
+$$I_1 = {s_0}$$
+$$I_2 = {t_0}$$
+$$ (s_0, t_0) ϵ ℜ $$
+**A OK**
+
+**B1** OK
+
+**B2 and B3**
+
+s0 devint s1, t0 devient t1. s1 et t1 vont chacun l'un vers l'autre.
+
+etc...
+
+#####Non bisimilar machines
+
+State s1 cannot be mimicked !

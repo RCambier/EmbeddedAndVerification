@@ -1,0 +1,38 @@
+﻿const real TIME_BOUND;
+
+const int C = 5;
+const real LAMBDA = 10/60; // customer arrival rate
+const int SRV_MEAN = 10; // mean service time
+const int SRV_DEV = 2; // service time standard deviation
+
+int(0..C) queue;
+
+// Probabilistic reachability
+property QueueOverflowProbMax = Pmax(<> (queue == C && time <= TIME_BOUND));
+property QueueOverflowProbMin = Pmin(<> (queue == C && time <= TIME_BOUND));
+
+// Expected reachability
+reward customers_served;
+property MinCustomersBeforeOverflow = Xmin(customers_served | queue == C);
+property MinTimeBeforeOverflow = Xmin(time | queue == C);
+
+process Arrivals()
+{
+	clock c; real x;
+	do {
+		when urgent(c >= x && queue < C) {= queue++, c = 0, x = Exp(LAMBDA) =}
+	}
+}
+
+process Server()
+{
+	clock c; real x;
+	do {
+		when urgent(c >= x && queue > 0) {= queue--, c = 0, x = Norm(SRV_MEAN, SRV_DEV), customers_served++ =}
+	}
+}
+
+par {
+::	Arrivals()
+::	Server()
+}

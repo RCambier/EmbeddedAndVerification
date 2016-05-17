@@ -1,0 +1,30 @@
+pha
+
+const double TIME_BOUND;
+const double FAIL = 0.05;
+
+const int mode_heat = 0;
+const int mode_cool = 1;
+const int mode_check = 2;
+const int mode_error = 3;
+
+module thermostat
+
+	mode : [0..3] init mode_heat;
+	t : var;
+	x : var;
+	T : var init nondet(9, 10);
+
+	invariant
+		(mode = mode_cool => T >= 0 & x <= TIME_BOUND & der(T) = -T & der(x) = 1 & der(t) = 1)
+	&	(mode = mode_heat => T <= 10 & t <= 3 & x <= TIME_BOUND & der(T) = 2 & der(x) = 1 & der(t) = 1)
+	&	(mode = mode_check => t <= 1 & x <= TIME_BOUND & der(T) = -0.5 * T & der(x) = 1 & der(t) = 1)
+	&	(mode = mode_error => x <= TIME_BOUND & der(T) = 0 & der(x) = 0 & der(t) = 0)
+	endinvariant
+
+	[] mode = mode_cool  & T <= 6   -> (mode' = mode_heat) & (t' = 0);
+	[] mode = mode_heat  & T >= 9   -> (mode' = mode_cool) & (t' = 0);
+	[] mode = mode_heat  & t >= 2   -> (mode' = mode_check) & (t' = 0);
+	[] mode = mode_check & t >= 0.5 -> (1-FAIL) : (mode' = mode_heat) & (t' = 0)
+	                                    + FAIL  : (mode' = mode_error) & (t' = 0) & (x' = 0) & (T' = 0);
+endmodule
