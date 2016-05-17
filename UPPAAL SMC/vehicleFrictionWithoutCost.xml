@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+clock time;
+const int sectionNbr = 8;
+const int Lengths[8] =  {61,153,312,290,338,312,290,338};
+const int Slopes[8]  =  {9,-5,16,-11,14,16,-11,14};
+const int Height[8] = {10,-13,86,-53,84,86,-53,84};
+
+int[0, 30] v0 = 5;
+int[0, 30] v1 = 5;
+int count = 0;
+const int vInit = 5;
+const int maxSpeed = 30;
+const int batteryInit = 10000;
+int battery = 10000;
+
+
+int lastSection = 0;</declaration>
+	<template>
+		<name x="5" y="5">Template</name>
+		<declaration>// Place local declarations here.
+
+
+
+int batteryCost(int v1,int v0,int height){
+
+	int Energy = 0;
+	Energy += v1*v1 - v0*v0;
+	Energy += height*10;
+
+
+	return Energy/10;
+
+}
+
+
+
+int EnergyLostToFriction(int ratio, int length){
+
+	int Energy = 0;
+	Energy += length*ratio/5;
+
+	return Energy/10;
+
+}
+
+int Speed(int v){
+	if (v &lt; maxSpeed){
+		return v;
+	}
+	else{
+		return maxSpeed;
+	}
+}</declaration>
+		<location id="id0" x="-64" y="-64">
+			<name x="-74" y="-94">frictionRemoved</name>
+			<urgent/>
+		</location>
+		<location id="id1" x="1168" y="-64">
+			<name x="1158" y="-94">end</name>
+			<label kind="invariant" x="1136" y="-48">battery&gt;75*batteryInit/100</label>
+			<urgent/>
+		</location>
+		<location id="id2" x="848" y="-64">
+			<name x="864" y="-96">sectionEnd</name>
+			<urgent/>
+		</location>
+		<location id="id3" x="152" y="200">
+			<name x="136" y="160">Battery0</name>
+		</location>
+		<location id="id4" x="152" y="0">
+			<name x="142" y="-30">Battery35</name>
+		</location>
+		<location id="id5" x="144" y="-160">
+			<name x="134" y="-190">Battery65</name>
+		</location>
+		<location id="id6" x="152" y="-328">
+			<name x="142" y="-358">Battery100</name>
+		</location>
+		<location id="id7" x="-816" y="-48">
+			<name x="-912" y="-72">sectionStart</name>
+			<urgent/>
+		</location>
+		<init ref="id7"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id3"/>
+			<label kind="assignment" x="0" y="104">v1 =  Speed(v0)</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id4"/>
+			<label kind="assignment" x="16" y="-48">v1 = Speed(v0 + 2)</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id5"/>
+			<label kind="assignment" x="0" y="-152">v1 = Speed(v0 + 3)</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id6"/>
+			<label kind="assignment" x="0" y="-280">v1 = Speed(v0+5)</label>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id0"/>
+			<label kind="assignment" x="-768" y="32">v0  = Speed(vInit), battery -= EnergyLostToFriction(0,Lengths[count])</label>
+			<nail x="-776" y="56"/>
+			<nail x="-152" y="56"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id0"/>
+			<label kind="assignment" x="-760" y="-24">v0 =Speed(vInit + 33* (v1-vInit)/100),  battery -= EnergyLostToFriction(33,Lengths[count])</label>
+			<nail x="-768" y="0"/>
+			<nail x="-160" y="0"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id0"/>
+			<label kind="assignment" x="-752" y="-104">v0 =Speed( vInit + 66*(v1-vInit)/100), battery -= EnergyLostToFriction(66,Lengths[count])</label>
+			<nail x="-752" y="-80"/>
+			<nail x="-160" y="-80"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id0"/>
+			<label kind="assignment" x="-752" y="-168">v0 = Speed(vInit + v1), battery -= EnergyLostToFriction(100,Lengths[count])</label>
+			<nail x="-760" y="-144"/>
+			<nail x="-168" y="-144"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="guard" x="376" y="176">time &gt; Lengths[count]/v1</label>
+			<label kind="assignment" x="312" y="208">battery -= batteryCost(v1,v0,Height[count])</label>
+			<nail x="720" y="200"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="guard" x="928" y="-56">count == sectionNbr -1</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id7"/>
+			<label kind="guard" x="-216" y="-584">count &lt; sectionNbr-1</label>
+			<label kind="assignment" x="-224" y="-616">count ++, time = 0</label>
+			<nail x="850" y="-552"/>
+			<nail x="-816" y="-552"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id2"/>
+			<label kind="guard" x="368" y="-360">time &gt; Lengths[count]/v1</label>
+			<label kind="assignment" x="288" y="-320">battery -= batteryCost(v1,v0,Height[count])</label>
+			<nail x="728" y="-328"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id2"/>
+			<label kind="guard" x="376" y="-184">time &gt; Lengths[count]/v1</label>
+			<label kind="assignment" x="296" y="-152">battery -= batteryCost(v1,v0,Height[count])</label>
+			<nail x="720" y="-160"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id2"/>
+			<label kind="guard" x="376" y="-24">time &gt; Lengths[count]/v1</label>
+			<label kind="assignment" x="304" y="8">battery -= batteryCost(v1,v0,Height[count])</label>
+			<nail x="728" y="0"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+Process = Template();
+
+// List one or more processes to be composed into a system.
+system Process;</system>
+	<queries>
+		<query>
+			<formula>E&lt;&gt;Process.end
+			</formula>
+			<comment>
+			</comment>
+		</query>
+	</queries>
+</nta>

@@ -1,0 +1,42 @@
+file(REMOVE_RECURSE
+  "moc_baseToolsModule.cxx"
+  "moc_outputDock.cxx"
+  "moc_mscDock.cxx"
+  "moc_cycleBar.cxx"
+  "moc_traceDock.cxx"
+  "moc_transitionDock.cxx"
+  "moc_watchDock.cxx"
+  "moc_editorPreferences.cxx"
+  "moc_outputPreferences.cxx"
+  "moc_simulatorPreferences.cxx"
+  "ui_outputPreferences.h"
+  "ui_editorPreferences.h"
+  "ui_simulatorPreferences.h"
+  "CMakeFiles/baseTools.dir/baseToolsModule.cpp.o"
+  "CMakeFiles/baseTools.dir/outputDock.cpp.o"
+  "CMakeFiles/baseTools.dir/mscDock.cpp.o"
+  "CMakeFiles/baseTools.dir/cycleBar.cpp.o"
+  "CMakeFiles/baseTools.dir/traceDock.cpp.o"
+  "CMakeFiles/baseTools.dir/transitionDock.cpp.o"
+  "CMakeFiles/baseTools.dir/watchDock.cpp.o"
+  "CMakeFiles/baseTools.dir/editorPreferences.cpp.o"
+  "CMakeFiles/baseTools.dir/outputPreferences.cpp.o"
+  "CMakeFiles/baseTools.dir/simulatorPreferences.cpp.o"
+  "CMakeFiles/baseTools.dir/moc_baseToolsModule.cxx.o"
+  "CMakeFiles/baseTools.dir/moc_outputDock.cxx.o"
+  "CMakeFiles/baseTools.dir/moc_mscDock.cxx.o"
+  "CMakeFiles/baseTools.dir/moc_cycleBar.cxx.o"
+  "CMakeFiles/baseTools.dir/moc_traceDock.cxx.o"
+  "CMakeFiles/baseTools.dir/moc_transitionDock.cxx.o"
+  "CMakeFiles/baseTools.dir/moc_watchDock.cxx.o"
+  "CMakeFiles/baseTools.dir/moc_editorPreferences.cxx.o"
+  "CMakeFiles/baseTools.dir/moc_outputPreferences.cxx.o"
+  "CMakeFiles/baseTools.dir/moc_simulatorPreferences.cxx.o"
+  "libbaseTools.pdb"
+  "libbaseTools.a"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/baseTools.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

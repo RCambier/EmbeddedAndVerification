@@ -1,0 +1,23 @@
+# 點陣圖序列名稱
+BITMAP_SEQ_NAME explode
+   
+# 點陣圖序列所擁有點陣圖數
+BITMAP_NUM 10
+
+# 點陣圖序列各點陣圖 寬度,高度
+BITMAP_WIDTH 256.0f
+BITMAP_HEIGHT 256.0f
+
+# 各點陣圖 所對應點陣圖檔 的 完整檔名
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/explode0.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/explode1.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/explode2.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/explode3.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/explode4.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/explode5.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/explode6.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/explode7.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/explode8.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/explode9.tga
+
+

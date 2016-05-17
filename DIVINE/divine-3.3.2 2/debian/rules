@@ -1,0 +1,6 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+%:
+	dh $@ --buildsystem=cmake
+override_dh_auto_configure:
+	dh_auto_configure -- `test -f pkgbuildflags && cat pkgbuildflags`

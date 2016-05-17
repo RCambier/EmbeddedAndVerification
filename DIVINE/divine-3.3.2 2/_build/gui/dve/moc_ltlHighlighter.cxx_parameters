@@ -1,0 +1,90 @@
+-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include
+-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include
+-I/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/bricks
+-I/usr/local/Cellar/valgrind/3.11.0/include/valgrind
+-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include
+-I/Users/rcambier/anaconda/include/libxml2
+-I/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/gui/baseIde
+-I/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/gui/..
+-I/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/gui/qtcolorpicker
+-I/Users/rcambier/anaconda/include
+-I/Users/rcambier/anaconda/include/QtGui
+-I/Users/rcambier/anaconda/include/QtCore
+-I/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2
+-I/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build
+-I/Users/rcambier/anaconda/include/QtDesigner
+-I/Users/rcambier/anaconda/include/QtDeclarative
+-I/Users/rcambier/anaconda/include/QtScriptTools
+-I/Users/rcambier/anaconda/include/QtDesigner
+-I/Users/rcambier/anaconda/include/QtXml
+-I/Users/rcambier/anaconda/include/QtSql
+-I/Users/rcambier/anaconda/include/QtOpenGL
+-I/Users/rcambier/anaconda/include/QtMultimedia
+-I/Users/rcambier/anaconda/include/QtNetwork
+-I/Users/rcambier/anaconda/include/phonon
+-I/Users/rcambier/anaconda/include/QtXmlPatterns
+-I/Users/rcambier/anaconda/include/QtWebKit
+-I/Users/rcambier/anaconda/include/QtHelp
+-I/Users/rcambier/anaconda/include/QtUiTools
+-I/Users/rcambier/anaconda/include/QtTest
+-I/Users/rcambier/anaconda/include/QtScript
+-I/Users/rcambier/anaconda/include/QtSvg
+-I/Users/rcambier/anaconda/include/QtGui
+-I/Users/rcambier/anaconda/include/QtCore
+-I/Users/rcambier/anaconda/mkspecs/default
+-I/Users/rcambier/anaconda/include
+-I/Users/rcambier/anaconda/include/QtCore
+-I/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/gui/dve
+-I/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/ltl3ba/buddy/src
+-I/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/libutap/src
+-I/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/include
+-DBRICKS_HAVE_DIRENT_D_TYPE
+-DBRICKS_HAVE_REGEX_H
+-DOPT_MPI=0
+-DOPT_LTL3BA=0
+-DOPT_LTL2DSTAR=0
+-DOPT_MURPHI=1
+-DOPT_CURSES=1
+-DOPT_SQL=0
+-DOPT_MANUAL=0
+-DOPT_GUI=1
+-DOPT_HOARD=0
+-DOPT_TBBMALLOC=1
+-DOPT_SIMULATE=1
+-DOPT_DRAW=1
+-DGEN_LLVM=0
+-DGEN_LLVM_PTST=0
+-DGEN_LLVM_CSDR=0
+-DGEN_LLVM_PROB=0
+-DGEN_DVE=1
+-DGEN_COIN=0
+-DGEN_CESMI=1
+-DGEN_TIMED=1
+-DGEN_EXPLICIT=1
+-DGEN_EXPLICIT_PROB=0
+-DGEN_DUMMY=0
+-DALG_MAP=0
+-DALG_OWCTY=1
+-DALG_REACHABILITY=1
+-DALG_WEAKREACHABILITY=0
+-DALG_EXPLICIT=0
+-DALG_CSDR=1
+-DALG_NDFS=0
+-DALG_METRICS=1
+-DSTORE_HC=0
+-DSTORE_COMPRESS=1
+-DTRANSFORM_POR=1
+-DTRANSFORM_FAIR=1
+-DDEV_CONFLATE=0
+-DDEV_GCOV=0
+-DDEV_NOPOOLS=0
+-DDEV_NOPOOLEPHEMERAL=0
+-DDEV_WARNINGS=0
+-DOPT_LLVMSPLIT=Generic
+-DQT_NO_DEBUG
+-D$<$<NOT:$<CONFIG:Debug>>:QT_NO_DEBUG>
+-DQT_GUI_LIB
+-DQT_CORE_LIB
+-o
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/gui/dve/moc_ltlHighlighter.cxx
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/gui/dve/ltlHighlighter.h

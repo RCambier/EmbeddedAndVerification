@@ -1,0 +1,15 @@
+input int values = 2;
+
+process a(key i) {
+    int x;
+    int b;
+    state a;
+    init a;
+    trans a->a {effect x = (x + 1)%values, b = (a(1)->b + 1)%2;};
+}
+
+process a(1);
+process a(2);
+process a(3);
+
+system async;

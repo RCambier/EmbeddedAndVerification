@@ -1,0 +1,6 @@
+#!/bin/bash
+
+APP_FOLDER=`dirname "$0"`
+PACKAGE_FOLDER="${APP_FOLDER}/../../"
+cd "${PACKAGE_FOLDER}/Contents/Resources/Java"
+./goal

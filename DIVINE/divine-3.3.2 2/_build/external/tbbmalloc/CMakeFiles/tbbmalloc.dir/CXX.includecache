@@ -1,0 +1,392 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../external/tbbmalloc/./tbb/tbb_config.h
+
+../external/tbbmalloc/./tbb/tbb_stddef.h
+tbb_config.h
+../external/tbbmalloc/./tbb/tbb_config.h
+cstddef
+-
+internal/_tbb_windef.h
+../external/tbbmalloc/./tbb/internal/_tbb_windef.h
+stdint.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/Customize.h
+tbb/tbb_stddef.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/tbb_stddef.h
+tbb/tbb_machine.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/tbb_machine.h
+tbb/itt_notify.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/itt_notify.h
+proxy.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/proxy.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/MapMemory.h
+stdlib.h
+-
+sys/mman.h
+-
+windows.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/Statistics.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/TypeDefinitions.h
+stddef.h
+-
+stdint.h
+-
+Customize.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/Customize.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/backend.cpp
+string.h
+-
+errno.h
+-
+tbbmalloc_internal.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbbmalloc_internal.h
+MapMemory.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/MapMemory.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/backref.cpp
+tbbmalloc_internal.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbbmalloc_internal.h
+string.h
+-
+new
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/frontend.cpp
+tbbmalloc_internal.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbbmalloc_internal.h
+errno.h
+-
+new
+-
+string.h
+-
+sched.h
+-
+dlfcn.h
+-
+tbb/tbb_version.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/tbb_version.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/large_objects.cpp
+tbbmalloc_internal.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbbmalloc_internal.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/proxy.cpp
+proxy.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/proxy.h
+unistd.h
+-
+dlfcn.h
+-
+malloc.h
+-
+string.h
+-
+new
+-
+windows.h
+-
+stdio.h
+-
+tbb_function_replacement.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb_function_replacement.h
+new
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/proxy.h
+stddef.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/gcc_generic.h
+stdint.h
+-
+unistd.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/gcc_ia32_common.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/ibm_aix51.h
+stdint.h
+-
+unistd.h
+-
+sched.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/icc_generic.h
+msvc_ia32_common.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/msvc_ia32_common.h
+gcc_ia32_common.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/gcc_ia32_common.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/linux_common.h
+sched.h
+-
+unistd.h
+-
+sys/syscall.h
+-
+limits.h
+-
+errno.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/linux_ia32.h
+stdint.h
+-
+gcc_ia32_common.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/gcc_ia32_common.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/linux_ia64.h
+stdint.h
+-
+ia64intrin.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/linux_intel64.h
+stdint.h
+-
+gcc_ia32_common.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/gcc_ia32_common.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/mac_ppc.h
+stdint.h
+-
+unistd.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/macos_common.h
+sched.h
+-
+sys/types.h
+-
+sys/sysctl.h
+-
+libkern/OSAtomic.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/mic_common.h
+sched.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/msvc_ia32_common.h
+intrin.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/sunos_sparc.h
+stdint.h
+-
+unistd.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/windows_api.h
+xtl.h
+-
+windows.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/windows_ia32.h
+msvc_ia32_common.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/msvc_ia32_common.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/windows_intel64.h
+intrin.h
+-
+msvc_ia32_common.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/msvc_ia32_common.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/xbox360_ppc.h
+xtl.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/xtl.h
+ppcintrinsics.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/ppcintrinsics.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/scalable_allocator.h
+stddef.h
+-
+stdint.h
+-
+new
+-
+tbb_stddef.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/tbb_stddef.h
+tbb_stddef.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/tbb_stddef.h
+utility
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/tbb_assert_impl.h
+cstdlib
+-
+stdio.h
+-
+string.h
+-
+stdarg.h
+-
+crtdbg.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/tbb_config.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/tbb_machine.h
+tbb_stddef.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/tbb_stddef.h
+machine/gcc_generic.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/gcc_generic.h
+machine/linux_intel64.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/linux_intel64.h
+machine/linux_ia32.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/linux_ia32.h
+machine/icc_generic.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/icc_generic.h
+machine/windows_ia32.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/windows_ia32.h
+machine/windows_intel64.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/windows_intel64.h
+machine/xbox360_ppc.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/xbox360_ppc.h
+machine/mic_common.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/mic_common.h
+machine/linux_intel64.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/linux_intel64.h
+machine/gcc_generic.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/gcc_generic.h
+machine/icc_generic.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/icc_generic.h
+machine/linux_ia32.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/linux_ia32.h
+machine/linux_intel64.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/linux_intel64.h
+machine/linux_ia64.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/linux_ia64.h
+machine/mac_ppc.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/mac_ppc.h
+machine/gcc_generic.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/gcc_generic.h
+machine/linux_common.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/linux_common.h
+machine/icc_generic.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/icc_generic.h
+machine/linux_ia32.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/linux_ia32.h
+machine/linux_intel64.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/linux_intel64.h
+machine/mac_ppc.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/mac_ppc.h
+machine/macos_common.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/macos_common.h
+machine/ibm_aix51.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/ibm_aix51.h
+machine/linux_ia32.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/linux_ia32.h
+machine/linux_intel64.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/linux_intel64.h
+machine/sunos_sparc.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/sunos_sparc.h
+sched.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/tbb_stddef.h
+tbb_config.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/tbb_config.h
+cstddef
+-
+internal/_tbb_windef.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/internal/_tbb_windef.h
+stdint.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/tbb_version.h
+tbb/tbb_stddef.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/tbb/tbb_stddef.h
+version_string.ver
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/version_string.ver
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/version_string.ver
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb_function_replacement.cpp
+windows.h
+-
+new
+-
+stdio.h
+-
+tbb_function_replacement.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb_function_replacement.h
+tbb/tbb_config.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/tbb_config.h
+tbb/tbb_stddef.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/tbb_stddef.h
+tbb/tbb_assert_impl.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/tbb_assert_impl.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb_function_replacement.h
+stddef.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbbmalloc.cpp
+TypeDefinitions.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/TypeDefinitions.h
+tbbmalloc_internal_api.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbbmalloc_internal_api.h
+../tbb/itt_notify.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbb/itt_notify.h
+tbb/tbb_assert_impl.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/tbb_assert_impl.h
+dlfcn.h
+-
+tbb/machine/windows_api.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/windows_api.h
+pthread.h
+-
+stdio.h
+-
+unistd.h
+-
+string.h
+-
+errno.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbbmalloc_internal.h
+TypeDefinitions.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/TypeDefinitions.h
+pthread.h
+-
+tbb/machine/windows_api.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/machine/windows_api.h
+tbb/tbb_config.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/tbb_config.h
+stdio.h
+-
+stdlib.h
+-
+limits.h
+-
+string.h
+-
+new
+-
+tbb/scalable_allocator.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbb/scalable_allocator.h
+tbbmalloc_internal_api.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbbmalloc_internal_api.h
+Statistics.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/Statistics.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/tbbmalloc/tbbmalloc_internal_api.h
+

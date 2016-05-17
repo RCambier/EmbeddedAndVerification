@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleName</key>
+	<string>GOAL</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.svvrl.GOAL</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2015.10.18</string>
+	<key>CFBundleVersion</key>
+	<string>2015.10.18</string>
+	<key>CFBundleExecutable</key>
+	<string>goal</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>gff</string>
+			</array>
+			<key>CFBundleTypeMIMETypes</key>
+			<array>
+				<string>application/gff</string>
+			</array>
+			<key>LSIsAppleDefaultForType</key>
+			<true/>
+			<key>CFBundleTypeName</key>
+			<string>GOAL File Format</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>GFF.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+	</array>
+	<key>CFBundleSignature</key>
+	<string>GOAL</string>
+	<key>CFBundleIconFile</key>
+	<string>GOAL.icns</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleHelpBookName</key>
+	<string>GOAL Help</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright ©2006-2015 SVVRL, All Rights Reserved.</string>
+	<key>CFBundleHelpBookFolder</key>
+	<string>doc</string>
+</dict>
+</plist>

@@ -1,0 +1,11 @@
+divine (3.3.2) unstable; urgency=low
+
+  * Automated build
+
+ -- Petr Rockai <mornfall@debian.org>  Mon, 27 Apr 2015 18:00:44 +0000
+
+divine (2.5.2) unstable; urgency=low
+
+  * Initial release.
+
+ -- Petr Rockai <mornfall@debian.org>  Tue, 10 Jul 2012 22:11:18 +0200

@@ -1,0 +1,42 @@
+# 點陣圖序列名稱
+BITMAP_SEQ_NAME fire
+   
+# 點陣圖序列所擁有點陣圖數
+BITMAP_NUM 28
+
+# 點陣圖序列各點陣圖 寬度,高度
+BITMAP_WIDTH 128.0f
+BITMAP_HEIGHT 128.0f
+
+# 各點陣圖 所對應點陣圖檔 的 完整檔名
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire0.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire1.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire2.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire3.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire4.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire5.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire6.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire7.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire8.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire9.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire10.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire11.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire12.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire13.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire14.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire15.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire16.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire17.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire18.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire19.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire20.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire21.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire22.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire23.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire24.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire25.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire26.tga
+BITMAP_FILE_FULL_NAME ./greddir/bitmapSeq/fire27.tga
+
+
+

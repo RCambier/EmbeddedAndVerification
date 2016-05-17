@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libqtcolorpicker.a  CMakeFiles/qtcolorpicker.dir/qtcolorpicker.cpp.o CMakeFiles/qtcolorpicker.dir/moc_qtcolorpicker.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libqtcolorpicker.a

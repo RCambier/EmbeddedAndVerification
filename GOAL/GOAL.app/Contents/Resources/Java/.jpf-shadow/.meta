@@ -1,0 +1,10 @@
+#This is automatically generated file.
+#Tue May 17 18:18:12 CEST 2016
+source\:org.svvrl.goal.gui@2015.10.18=../plugins/org.svvrl.goal.gui.zip
+source\:org.svvrl.goal.core@2015.10.18=../plugins/org.svvrl.goal.core.zip
+uid\:org.svvrl.goal.gui@2015.10.18=org.svvrl.goal.gui@2015.10.18
+modified\:org.svvrl.goal.gui@2015.10.18=2015-10-17 20\:18\:44
+file\:org.svvrl.goal.core@2015.10.18=org.svvrl.goal.core@2015.10.18.zip
+modified\:org.svvrl.goal.core@2015.10.18=2015-10-17 20\:18\:44
+uid\:org.svvrl.goal.core@2015.10.18=org.svvrl.goal.core@2015.10.18
+file\:org.svvrl.goal.gui@2015.10.18=org.svvrl.goal.gui@2015.10.18.zip

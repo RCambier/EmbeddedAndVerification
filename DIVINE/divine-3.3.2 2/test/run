@@ -1,0 +1,95 @@
+#!/bin/sh
+
+. util
+. environment
+
+map() { ann "divine verify --map --report" "$@" "2> progress | capture"; }
+ndfs() { ann "divine verify --nested-dfs --report" "$@" "2> progress | capture"; }
+owcty() { ann "divine verify --owcty --report" "$@" "2> progress | capture"; }
+reachability() { ann "divine verify --reachability --report" "$@" "2> progress | capture"; }
+csdr() { ann "divine verify --csdr --report" "$@" "2> progress | capture"; }
+metrics() { ann "divine metrics --report" "$@" "2> progress | capture"; }
+verify() { ann "divine verify --report" "$@" "2> progress | capture"; }
+genexplicit() { ann "divine gen-explicit --report -o testcase.dess" "$@" "2> progress | capture"; }
+genexplicit_reach() {
+    rm -f testcase.dess
+    ann "divine gen-explicit --report -o testcase.dess" "$@"
+    ARGS=""
+    for a in "$@"; do
+        echo $a | grep -E '^[^.]*[.][^.]*' && continue
+        echo $a | grep -E '^--property=' && continue
+        ARGS="$ARGS $a"
+    done
+    ann "divine verify --reachability --report testcase.dess $ARGS" "2> progress | capture"
+}
+draw() { ann "divine draw" "$@"; }
+info() { ann "divine info" $(echo "$@" | sed -e 's,--property=[^ ]*,,' \
+                                             -e 's,--no-reduce,,' \
+                                             -e 's,-D [^ ]*,,g' \
+                                             -e 's,--max-[^ -]*=[0-9]*,,g'); }
+
+mpi_verify() { mpi verify --mpi "$@"; }
+mpi_metrics() { mpi metrics --mpi "$@"; }
+
+mpi() {
+    test "$OPT_MPI" = "ON" || exit 200;
+    if ! "$MPIEXEC" > /dev/null 2>&1; then
+        err=$?
+        if test $err -ne 0 && test $err -ne 1; then
+            echo mpiexec gave error $err, skipping test
+            exit 200
+        fi
+    fi
+    ann "$MPIEXEC -H localhost,localhost divine" "$@" "--report 2> progress | capture"
+}
+
+fixreduce() {
+    if echo "$@" | grep -q "reduce="; then
+        "$@"
+    else
+        "$@" --no-reduce
+    fi
+}
+
+identity() {
+    file=$1
+    shift
+    "$@" "$file"
+}
+
+dve_compile() {
+    file=$1
+    shift
+    args=
+    defs=
+
+    while test -n "$1"; do
+        if test "$1" = "-D"; then
+            defs="$defs -D $2"
+            shift
+        else
+            args="$args $1";
+        fi
+        shift
+    done
+
+    ann divine compile $defs "$file"
+    $args `basename $file$cesmiext`
+}
+
+llvm_assemble() {
+    file=$1
+    shift
+
+    out=`basename $file .ll`.bc
+    ann $(echo $LLVMCONFIG | sed -e s,llvm-config,llvm-as,) -o=$out $file
+    "$@" $out
+}
+
+EXTRA=""
+if [ "x$NO_TIME_LIMIT" = "x" ]; then
+    EXTRA="--max-time=600"
+fi
+
+set -e
+fixreduce "$@" "$EXTRA"

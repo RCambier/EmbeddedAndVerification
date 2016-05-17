@@ -1,0 +1,133 @@
+# 模型序列名稱
+MODEL_NAME cman0011
+   
+# 模型序列所擁有模型數
+MESH_NUM 3
+
+# 模型序列任一模型所擁有三角形圖元數
+MESH_NUM_FACES 12
+
+# 模型序列任一模型所擁有頂點數
+MESH_NUM_VERTICES 8
+
+# 模型序列任一模型所擁有紋理點陣圖對應點數
+MESH_NUM_TVERTICES 12
+
+# 模型序列 紋理點陣圖對應點 於紋理點陣圖座標系座標 清單
+MESH_TVERT 0	0.00	0.00	0.00
+MESH_TVERT 1	1.00	0.00	0.00
+MESH_TVERT 2	0.00	1.00	0.00
+MESH_TVERT 3	1.00	1.00	0.00
+MESH_TVERT 4	0.00	0.00	0.00
+MESH_TVERT 5	1.00	0.00	0.00
+MESH_TVERT 6	0.00	1.00	0.00
+MESH_TVERT 7	1.00	1.00	0.00
+MESH_TVERT 8	0.00	0.00	0.00
+MESH_TVERT 9	1.00	0.00	0.00
+MESH_TVERT 10	0.00	1.00	0.00
+MESH_TVERT 11	1.00	1.00	0.00
+
+# 模型序列各模型各頂點於本地座標系座標
+TIMEVALUE 0
+MESH_VERTEX    0	-62.12	-0.00	8.59
+MESH_VERTEX    1	54.04	-0.00	8.59
+MESH_VERTEX    2	-62.12	-0.00	21.72
+MESH_VERTEX    3	54.04	-0.00	21.72
+MESH_VERTEX    4	-62.12	36.36	8.59
+MESH_VERTEX    5	54.04	36.36	8.59
+MESH_VERTEX    6	-62.12	36.36	21.72
+MESH_VERTEX    7	54.04	36.36	21.72
+
+TIMEVALUE 800
+MESH_VERTEX    0	-57.34	0.00	-46.26
+MESH_VERTEX    1	53.27	0.00	-10.79
+MESH_VERTEX    2	-61.35	0.00	-33.76
+MESH_VERTEX    3	49.26	-0.00	1.72
+MESH_VERTEX    4	-62.12	36.36	-28.84
+MESH_VERTEX    5	54.04	36.36	-28.84
+MESH_VERTEX    6	-62.12	32.84	-19.03
+MESH_VERTEX    7	54.04	32.84	-19.03
+
+TIMEVALUE 1600
+MESH_VERTEX    0	-57.34	0.00	-46.26
+MESH_VERTEX    1	53.27	0.00	-10.79
+MESH_VERTEX    2	-61.35	0.00	-33.76
+MESH_VERTEX    3	49.26	14.09	14.99
+MESH_VERTEX    4	-62.12	36.36	-28.84
+MESH_VERTEX    5	54.04	36.36	-28.84
+MESH_VERTEX    6	-62.12	29.32	-22.34
+MESH_VERTEX    7	54.04	29.32	-22.34
+
+# 模型序列任一模型 各三角形圖元各頂點 於該模型各頂點位置索引值,
+#		   各三角形圖元所使用紋理,材質 於該模型各 紋理,材質 位置索引值
+MESH_FACE    0:    A:    2 B:    0 C:    3 AB:    1 BC:    0 CA:    1	 MESH_SMOOTHING 1 	MESH_MTLID 0
+MESH_FACE    1:    A:    1 B:    3 C:    0 AB:    1 BC:    0 CA:    1	 MESH_SMOOTHING 1	MESH_MTLID 0
+MESH_FACE    2:    A:    5 B:    4 C:    7 AB:    1 BC:    0 CA:    1	 MESH_SMOOTHING 1 	MESH_MTLID 0
+MESH_FACE    3:    A:    6 B:    7 C:    4 AB:    1 BC:    0 CA:    1	 MESH_SMOOTHING 1 	MESH_MTLID 0
+MESH_FACE    4:    A:    1 B:    0 C:    5 AB:    1 BC:    0 CA:    1	 MESH_SMOOTHING 1 	MESH_MTLID 0
+MESH_FACE    5:    A:    4 B:    5 C:    0 AB:    1 BC:    0 CA:    1	 MESH_SMOOTHING 1 	MESH_MTLID 0
+MESH_FACE    6:    A:    3 B:    1 C:    7 AB:    1 BC:    0 CA:    1	 MESH_SMOOTHING 1 	MESH_MTLID 0
+MESH_FACE    7:    A:    5 B:    7 C:    1 AB:    1 BC:    0 CA:    1	 MESH_SMOOTHING 1 	MESH_MTLID 1
+MESH_FACE    8:    A:    2 B:    3 C:    6 AB:    1 BC:    0 CA:    1	 MESH_SMOOTHING 1 	MESH_MTLID 1
+MESH_FACE    9:    A:    7 B:    6 C:    3 AB:    1 BC:    0 CA:    1	 MESH_SMOOTHING 1 	MESH_MTLID 0
+MESH_FACE   10:    A:    0 B:    2 C:    4 AB:    1 BC:    0 CA:    1	 MESH_SMOOTHING 1 	MESH_MTLID 0
+MESH_FACE   11:    A:    6 B:    4 C:    2 AB:    1 BC:    0 CA:    1	 MESH_SMOOTHING 1 	MESH_MTLID 0
+
+# 模型序列任一模型 各三角形圖元各頂點紋理點陣圖對應點 於該模型各紋理點陣圖對應點位置索引值
+MESH_TFACE 0	10	8	11
+MESH_TFACE 1	9	11	8
+MESH_TFACE 2	8	9	10
+MESH_TFACE 3	11	10	9
+MESH_TFACE 4	5	4	7
+MESH_TFACE 5	6	7	4
+MESH_TFACE 6	1	0	3
+MESH_TFACE 7	2	3	0
+MESH_TFACE 8	5	4	7
+MESH_TFACE 9	6	7	4
+MESH_TFACE 10	1	0	3
+MESH_TFACE 11	2	3	0
+
+MAT_TEX_COUNT 2
+
+# 紋理,材質 0 
+MATERIAL_AMBIENT 1.0	1.0	1.0
+MATERIAL_DIFFUSE 1.0	1.0	1.0
+# 該材質,紋理 擁有 單一紋理 或 多紋理
+TEXTURE_NUM_TYPE single
+# 該材質,紋理 所使用點陣圖檔 完整檔名
+TEXTURE_BITMAPPATH ./greddir/modelSeq/iron.bmp
+
+
+# 紋理,材質 1 
+MATERIAL_AMBIENT 1.0	1.0	1.0
+MATERIAL_DIFFUSE 1.0	1.0	1.0
+# 該材質,紋理 擁有 單一紋理 或 多紋理
+TEXTURE_NUM_TYPE multi
+# 該材質,紋理 各紋理 所使用基本點陣圖檔 完整檔名
+# 注意:模型序列檔所使用 相對目錄 皆相對於 程式檔(執行檔)所在目錄
+TEXTURE_BITMAPPATH ./greddir/modelSeq/brick.bmp
+# 具 多紋理 材質,紋理 各紋理 於基本點陣圖 繪製資料類型
+BASE_BITMAP_DRAW_DATA_TYPE	0 
+# 該材質,紋理 各紋理 所使用基本點陣圖檔 繪圖矩形 左上角,右下角 於 該點陣圖左上角座標系 座標
+DRAW_RECT_LT 38 16
+DRAW_RECT_RB 218 76
+
+
+
+#程式中 代表 多紋理 材質,紋理 各紋理 於基本點陣圖 繪製資料類型 的 列舉類型
+#enum BaseBitmapDrawDataType
+#{
+#	BaseBitmapDrawDataType_NodeName = 0,
+#	BaseBitmapDrawDataType_ProcessID
+#};
+
+
+
+
+
+
+
+
+
+
+

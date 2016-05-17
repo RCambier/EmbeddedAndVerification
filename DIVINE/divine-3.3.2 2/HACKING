@@ -1,0 +1,287 @@
+A Hacker's Guide
+================
+
+This chapter is intended for DIVINE developers, writing algorithms, backends or
+working on various framework components. Before starting with DIVINE, it is
+advisable that you first try to compile the tool (see README) and find out how
+the `divine` binary and other components work.
+
+The development work is co-ordinated through the `divine` at `fi.muni.cz`
+mailing list, and through a [trac instance] [1] which has (most importantly)
+our [issue tracker] [2] and also a [source code browser] [3]. We also run a
+[continuous integration server] [4], based on Hydra.
+
+[1]: http://divine.fi.muni.cz/trac
+[2]: http://divine.fi.muni.cz/trac/report/6
+[3]: http://divine.fi.muni.cz/trac/browser
+[4]: http://divine.fi.muni.cz/hydra
+
+Using Darcs
+-----------
+
+The source tree of divine is kept in the darcs revision control system.
+
+You need a darcs 2.x binary (see <http://www.darcs.net>) to check out the
+source and to record patches. After installing darcs, there is a single "main"
+branch, which you should use as a base for your work. Get a copy by issuing:
+
+    $ darcs get http://divine.fi.muni.cz/darcs/mainline divine
+
+Now, you should have a directory called divine, which contains a copy of the
+source code. You can modify a few files in there, and issue
+
+    $ darcs whatsnew
+    $ darcs record
+
+You will notice that, unlike CVS, `darcs` will ask you which changes to record
+(or commit, in the CVS vocabulary). Also, `darcs` will ask you for a short
+patch name. You are encouraged to only record small changes at once, so that
+you can describe the change in a single line. Of course, for bigger changes (or
+those that need more explanation), you can still include a longer description
+after the short one (darcs will ask). The description should be an English
+sentence, starting with a capital letter and ending with a period. It should
+preferably be no longer than 80 characters. We commonly prefix the short
+description with a single word describing the component it affects.
+
+Now, after you provide this data, darcs will run the testsuite, to ensure you
+didn't break anything. However, this is most often something you do not want to
+happen, and should disable in your personal repo (you can always run the suite
+with `make check`). Prevent darcs from running the tests with:
+
+    $ echo "ALL no-test" > _darcs/prefs/default
+
+Another important command is:
+
+    $ darcs changes -s -i
+
+This will let you browse the recent changes, with summary of changed files in
+each. You can hit `v` in the interactive prompt to inspect the change in
+detail. Use spacebar to advance to the next older patch.
+
+When you record a change you don't like, you can use `darcs unrecord` to remove
+the recorded patch. Note however, that the changes will be kept in the working
+copy, so you can `darcs record` them again, or `darcs revert` them, if you are
+sure you want to remove them forever.
+
+If you have changes that you would like to have included within the main divine
+branch, it is probably best to send those changes by mail. They will be
+reviewed and added to the repository as appropriate.
+
+    $ darcs send
+
+Alternatively, you can publish your darcs repository (e.g. using a public http
+hosting service, or you can try [patch-tag] [6] or [darcsden] [7]). Then
+contact the maintainer and ask them to merge your changes into mainline.
+
+[6]: http://www.patch-tag.com
+[7]: http://darcsden.com
+
+Over time, the mainline will accumulate some changes, and you will probably
+want to stay in sync with those. It is advisable that before merging from
+mainline, you record all your unrecorded changes. Then, you may issue:
+
+    $ darcs pull
+
+Which will ask you which changes would you like to bring into your branch. Most
+of the time, you should not see any conflicts, as darcs handles merging
+automatically (unless there are real conflicts).
+
+If you get spurious conflicts when pulling, it is advisable that you `darcs
+get` a new copy of the mainline repository and use `darcs pull` to move your
+local changes from your previous copy. This means that some patches have been
+removed from the mainline, although this happens only very rarely.
+
+You can build divine the same way as you would when using distribution
+tarballs, although you may need to `chmod +x ./configure` first. Please see
+README for further details.
+
+Source Code Overview
+--------------------
+
+The source code is currently laid out like this:
+
+* **divine/** contains sources and headers of the verification & state space
+  generation framework and actual model checking algorithms
+
+  * **divine/algorithm/** contains model checking algorithm implementations (the
+    model checking frontend)
+  * **divine/generator/** contains the implementations of state space
+      generators (the backends)
+  * **divine/llvm/** contains the implementation of LLVM interpreter for
+      verification of C and C++ using LLVM bitcode
+  * **divine/timed/** contains the implementation of UPPAAL timed automata format
+      for DIVINE.
+  * **divine/dve/** contains the implementation of DVE interpreter for
+      verification of DVE format.
+  * **divine/coin/** contains the implementation of CoIn interpreter for
+      verification of CoIn models.
+  * **divine/cesmi/** contains the implementation of CESMI interface.
+  * **divine/explicit/** contains the implementation of [DESS format](#divine-explicit-state-space-format).
+  * **divine/utility/** contains implementation of DIVINE specific utility
+      functions.
+  * **divine/ltl2ba/** contains an implementation of the LTL to Büchi translator
+
+* **tools/** is for binaries
+
+  * **tools/divine.cpp** is the main user-level entry point of the tool
+
+* **external/** the external code used in DIVINE such as the libc++ library,
+    the murphi compiler for divine, or the parallel allocators.
+* **bricks/** is the bricks C++ library used for threading, command line
+  parsing and a couple of other utilities used throughout the code
+* **gui/** is the Qt graphical interface of divine
+
+The following sections talk about various parts of the source code in more
+detail.
+
+### Wibble
+
+DIVINE uses libwibble, a general-purpose utility library for C++ for several
+things. Most importantly, the threading abstraction is provided by this library
+and comes with a pthread-based and a win32-based implementation.
+
+### The Toolkit
+
+In **divine/toolkit**, you will find the parts of divine that are most
+generic. High-performance hash tables, a very simple RPC protocol over MPI,
+memory allocation, parallel execution and distributed termination
+detection. This code is not really specific to model checking or graph
+exploration, but is geared toward high-performance computing.
+
+* **parallel.h**: A simple parallel work domain using shared memory and
+  threads. Used as a basic building block for parallel sections of other code.
+* **barrier.h**: A termination-detecting barrier for a bunch of threads. Used
+  in the implementation of parallel.h.
+* **fifo.h**: A simple one-way communication primitive for shared memory,
+  without locking. Used by parallel.h to implement inter-thread communication.
+* **hashset.h**: The current implementation of a hash table for use as a
+  set. Primarily intended to use with **Blob** objects.
+* **ntreehashset.h** The implementation of tree compressed hash set
+  to facilitate lossless state space compression. It uses either
+  hashset or concurrentset backend.
+* **concurrentset.h** The implementation of high-performance shared memory
+  resizeable hash table.
+* **blob.h**: A semi-smart pointer. Addresses an object with known size and a
+  couple of flag bits. No reference counting.
+* **pool.h**: A very fast **Blob** object allocator designed for efficient
+  handling of short-lived objects. It is suitable for allocating huge
+  numbers of objects that only come in a small number of different sizes.
+* **rpc.h**: A generic but very simple marshalling/demarshalling layer, used in
+  implementing MPI.
+* **mpi.h**: Implementation of the MPI layer, built on top of the work domain
+  implementation available in parallel.h. Semi-transparent for client code, see
+  also rpc.h.
+
+### Graph Traversal
+
+Another set of modules of the divine library implements a graph interface and
+parallel graph traversal utilities. These live in **divine/graph**.
+
+* **datastruct.h**: Implements the data structures for graph traversal, a BFS
+  queue and a DFS stack, tailored for use with the generic graph visitor.
+* **visitor.h**: A number of generic graph exploration algorithms. Both
+  breadth-first and depth-first sequential visitors are available as building
+  blocks, and a single static-partitioning parallel one (breadth-first based,
+  but without layer synchronisation).
+
+### Algorithms
+
+The actual model-checking algorithms can be found under
+**divine/algorithm**. The common infrastructure is found in **common.h**, and
+builds heavily on the parallel primitives from **toolkit**.
+
+* **owcty.h**: The staple parallel algorithm for detecting accepting cycles.
+* **nested-dfs.h**: Nested DFS search, another staple algorithm, but sequential.
+* **map.h.**: Maximal Accepting Predecessor, a parallel algorithm like OWCTY,
+  but usually slower.
+* **reachability.h**: Parallel reachability analysis, search for deadlock or
+  goal states. (See also section on generators below.)
+* **metrics.h**: A very efficient parallel state space generator. Suitable for
+  obtaining state space statistics and for benchmarking.
+* **genexplicit.h**: Algorithm used to generate the DESS explicit state
+  space format.
+
+### Generators
+
+The state space generators, or system interpreters, are a major part of
+DIVINE. Each is usually split into two parts, the bulk of the implementation of
+a given language living under its own subdirectory in **divine/**, and a
+comparatively small *adaptor* -- a piece of code that implements a standardised
+graph-traversal interface on top of the interpreter -- found under
+**divine/generator**. The adaptor interface is declared in **divine/graph**.
+
+The currently available generators are:
+
+* **divine/cesmi**: Not a language interpreter, but a binary interface for
+  shared objects. See the [user manual] [8] for the specification of its
+  API/ABI.
+* **divine/dve**: The DVE language. The most traditional of DIVINE input
+  languages.
+* **divine/timed**: Interpreter for UPPAAL Timed Automata.
+* **divine/llvm**: LLVM bitcode interpreter, suitable for verifying C(++) code.
+* **divine/coin**: CoIn, aka Component-Interaction Automata.
+* **divine/explicit**: Simple generator for loading DESS (DIVINE explicit
+  state space) files.
+
+[8]: manual.html#the-cesmi-specification
+
+### Instances
+
+The basic components of divine are implemented as C++ templates, for various
+reasons (performance, static type safety). As such, a "configuration" of
+divine: the input language interpreter, the model checking algorithm and the
+state storage subsystem need to be combined at compile time, obtaining a single
+tight unit with minimal configuration-related branching in the hot code
+paths. The code in **divine/instances** takes care of both instructing the
+compiler to emit code for the sensible combinations of modules, as well as
+provide the code to translate runtime configuration into the correct entry
+point of the combined system.
+
+### LTL to Büchi translation
+
+In order to perform LTL model checking, DIVINE needs to translate LTL formulas
+into Büchi automata. There are currently two components which implement this
+translation, the "traditional" ltl2ba which has been part of DIVINE since
+forever, found in **divine/ltl2ba** and a "modern" implementation based on the
+unrelated external tool called, confusingly, "LTL2BA". The implementation
+shipped with DIVINE is however called LTL3BA and is found in
+**external/ltl3ba**. There is a compile time option to enable/disable LTL3BA.
+
+### Tools
+
+This directory hosts parts of the divine source that comprise the command line
+interface. These files are not part of the divine library, although certain
+modules may move to the library over time.
+
+* **divine.cpp**: This is the main entrypoint of the divine CLI. It implements
+  command line parsing and based on the command line calls into the library or
+  into other tools (model compiler, combine).
+* **compile.h**, **compile.cpp**: Entry point of the model compiler. Calls into
+  either the DVE or the Murphi compiler to generate C++ code and executes an
+  external C++ compiler on the result.
+* **compile-pml.pl**, **packjars.pl**: Parts of an external Java-based ProMeLa
+  compiler. Currently not part of `divine compile`, only available as a
+  standalone tool.
+* **combine.h**: Implementation of `divine combine`. Calls out to (external)
+  `cpp`, `m4` and into the ltl2ba part of the divine library to translate
+  dve/mdve/ltl files into raw DVE.
+
+### GUI
+
+Finally, the **gui** directory contains the sources of a graphical user
+interface for the DIVINE tool, based on Qt 4.x. Comes with a DVE simulator and
+counterexample browser.
+
+Debugging
+---------
+
+When debugging DIVINE with **`gdb`**, no special precautions are usually
+needed. You however probably want a build with debugging enabled and
+optimisations disabled: pass `-DCMAKE_BUILD_TYPE=Debug` to obtain such a
+build. This also enables assertion checking, which is definitely useful for
+debugging.
+
+Moreover, when using **`valgrind`** to hunt down leaks and/or memory
+corruption, it is often desirable do disable custom memory management: pass
+`-DTBBMALLOC=OFF` (in addition to the above) at configure time to
+achieve this.

@@ -1,0 +1,238 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../external/murphi/cpp_sym.h
+
+../external/murphi/decl.h
+
+../external/murphi/expr.h
+
+../external/murphi/lextable.h
+
+../external/murphi/mu.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+stdarg.h
+-
+muparser.h
+../external/murphi/muparser.h
+cpp_sym.h
+../external/murphi/cpp_sym.h
+lextable.h
+../external/murphi/lextable.h
+expr.h
+../external/murphi/expr.h
+decl.h
+../external/murphi/decl.h
+stmt.h
+../external/murphi/stmt.h
+rule.h
+../external/murphi/rule.h
+
+../external/murphi/rule.h
+
+../external/murphi/stmt.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/external/murphi/mulexer.cpp
+stdio.h
+-
+string.h
+-
+errno.h
+-
+stdlib.h
+-
+inttypes.h
+-
+mu.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/external/murphi/mu.h
+unistd.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/external/murphi/support/mu_io_C_str.cpp
+ctype.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/external/murphi/support/mu_io_h_str.cpp
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/external/murphi/support/mu_state_C_str.cpp
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/external/murphi/support/mu_state_h_str.cpp
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/external/murphi/support/mu_statecl_h_str.cpp
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/external/murphi/support/mu_sym_C_str.cpp
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/external/murphi/support/mu_sym_h_str.cpp
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/external/murphi/support/mu_system_C_str.cpp
+math.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/external/murphi/support/mu_system_h_str.cpp
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/external/murphi/support/mu_util_C_str.cpp
+sys/times.h
+-
+unistd.h
+-
+sys/time.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/external/murphi/support/mu_util_dep_h_str.cpp
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/external/murphi/support/mu_util_h_str.cpp
+limits.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/external/murphi/support/mu_verifier_C_str.cpp
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/external/murphi/support/mu_verifier_h_str.cpp
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+stdarg.h
+-
+iostream
+-
+limits.h
+-
+new
+-
+signal.h
+-
+assert.h
+-
+vector
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/cpp_code.C
+mu.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/mu.h
+support.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/support.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/cpp_code_as.C
+mu.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/mu.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/cpp_sym.C
+mu.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/mu.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/cpp_sym.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/cpp_sym_aux.C
+mu.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/mu.h
+limits.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/cpp_sym_decl.C
+mu.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/mu.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/decl.C
+mu.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/mu.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/decl.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/error.C
+mu.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/mu.h
+stdarg.h
+-
+iostream
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/expr.C
+mu.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/mu.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/expr.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/lextable.C
+mu.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/mu.h
+string.h
+-
+ctype.h
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/lextable.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/mu.C
+mu.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/mu.h
+string.h
+-
+new
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/mu.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+stdarg.h
+-
+muparser.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/muparser.h
+cpp_sym.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/cpp_sym.h
+lextable.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/lextable.h
+expr.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/expr.h
+decl.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/decl.h
+stmt.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/stmt.h
+rule.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/rule.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/parse.C
+mu.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/mu.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/rule.C
+mu.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/mu.h
+iostream
+-
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/rule.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/stmt.C
+mu.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/mu.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/stmt.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/symtab.C
+mu.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/mu.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/util.C
+mu.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/murphi/mu.h
+stdarg.h
+-
+
+external/murphi/support.h
+

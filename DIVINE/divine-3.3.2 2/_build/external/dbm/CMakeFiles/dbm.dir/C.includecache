@@ -1,0 +1,170 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../external/dbm/include/base/bitstring.h
+assert.h
+-
+stddef.h
+-
+base/intutils.h
+../external/dbm/include/base/base/intutils.h
+debug/utils.h
+../external/dbm/include/base/debug/utils.h
+
+../external/dbm/include/base/c_allocator.h
+stddef.h
+-
+base/inttypes.h
+../external/dbm/include/base/base/inttypes.h
+
+../external/dbm/include/base/doubles.h
+float.h
+-
+
+../external/dbm/include/base/inttypes.h
+config.h
+../external/dbm/include/base/config.h
+inttypes.h
+-
+stdint.h
+-
+windows.h
+-
+
+../external/dbm/include/base/intutils.h
+string.h
+-
+base/inttypes.h
+../external/dbm/include/base/base/inttypes.h
+
+../external/dbm/include/base/relation.h
+
+../external/dbm/include/dbm/constraints.h
+limits.h
+-
+assert.h
+-
+base/inttypes.h
+../external/dbm/include/dbm/base/inttypes.h
+iostream
+-
+
+../external/dbm/include/dbm/dbm.h
+base/intutils.h
+../external/dbm/include/dbm/base/intutils.h
+hash/compute.h
+../external/dbm/include/dbm/hash/compute.h
+base/relation.h
+../external/dbm/include/dbm/base/relation.h
+dbm/constraints.h
+../external/dbm/include/dbm/dbm/constraints.h
+
+../external/dbm/include/dbm/mingraph.h
+base/c_allocator.h
+../external/dbm/include/dbm/base/c_allocator.h
+base/intutils.h
+../external/dbm/include/dbm/base/intutils.h
+dbm/dbm.h
+../external/dbm/include/dbm/dbm/dbm.h
+
+../external/dbm/include/dbm/print.h
+stdio.h
+-
+dbm/constraints.h
+../external/dbm/include/dbm/dbm/constraints.h
+iostream
+-
+
+../external/dbm/include/debug/macros.h
+debug/utils.h
+../external/dbm/include/debug/debug/utils.h
+
+../external/dbm/include/debug/utils.h
+stdio.h
+-
+base/inttypes.h
+../external/dbm/include/debug/base/inttypes.h
+iostream
+-
+
+../external/dbm/include/hash/compute.h
+assert.h
+-
+string.h
+-
+base/inttypes.h
+../external/dbm/include/hash/base/inttypes.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/base/bitstring.c
+base/bitstring.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/base/base/bitstring.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/base/doubles.c
+math.h
+-
+base/doubles.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/base/base/doubles.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/base/intutils.c
+assert.h
+-
+base/intutils.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/base/base/intutils.h
+debug/macros.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/base/debug/macros.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/dbm.c
+stdio.h
+-
+stdlib.h
+-
+base/intutils.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/base/intutils.h
+base/bitstring.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/base/bitstring.h
+base/doubles.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/base/doubles.h
+debug/macros.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/debug/macros.h
+dbm/dbm.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/dbm/dbm.h
+dbm/print.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/dbm/print.h
+dbm.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/dbm.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/dbm.h
+base/inttypes.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/base/inttypes.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/mingraph_cache.h
+dbm/constraints.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/dbm/constraints.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/mingraph_coding.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/mingraph_write.c
+base/bitstring.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/base/bitstring.h
+dbm/mingraph.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/dbm/mingraph.h
+mingraph_coding.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/mingraph_coding.h
+dbm.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/dbm.h
+mingraph_cache.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/mingraph_cache.h
+debug/macros.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/dbm/debug/macros.h
+
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/hash/compute.c
+hash/compute.h
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/external/dbm/hash/hash/compute.h
+
+/usr/local/Cellar/valgrind/3.11.0/include/valgrind/config.h
+

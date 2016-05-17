@@ -1,0 +1,87 @@
+Determining if the Q_WS_X11 exist failed with the following output:
+Change Dir: /Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f1ba2/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_f1ba2.dir/build.make CMakeFiles/cmTC_f1ba2.dir/build
+Building CXX object CMakeFiles/cmTC_f1ba2.dir/CheckSymbolExists.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/Users/rcambier/anaconda/include  -std=c++11  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk   -o CMakeFiles/cmTC_f1ba2.dir/CheckSymbolExists.cxx.o -c "/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx"
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: use of undeclared identifier 'Q_WS_X11'
+  return ((int*)(&Q_WS_X11))[argc];
+                  ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_f1ba2.dir/CheckSymbolExists.cxx.o] Error 1
+make: *** [cmTC_f1ba2/fast] Error 2
+
+File /Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_X11
+  return ((int*)(&Q_WS_X11))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_WIN exist failed with the following output:
+Change Dir: /Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8b329/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_8b329.dir/build.make CMakeFiles/cmTC_8b329.dir/build
+Building CXX object CMakeFiles/cmTC_8b329.dir/CheckSymbolExists.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/Users/rcambier/anaconda/include  -std=c++11  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk   -o CMakeFiles/cmTC_8b329.dir/CheckSymbolExists.cxx.o -c "/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx"
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: use of undeclared identifier 'Q_WS_WIN'
+  return ((int*)(&Q_WS_WIN))[argc];
+                  ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_8b329.dir/CheckSymbolExists.cxx.o] Error 1
+make: *** [cmTC_8b329/fast] Error 2
+
+File /Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_WIN
+  return ((int*)(&Q_WS_WIN))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_QWS exist failed with the following output:
+Change Dir: /Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d4b71/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_d4b71.dir/build.make CMakeFiles/cmTC_d4b71.dir/build
+Building CXX object CMakeFiles/cmTC_d4b71.dir/CheckSymbolExists.cxx.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/Users/rcambier/anaconda/include  -std=c++11  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk   -o CMakeFiles/cmTC_d4b71.dir/CheckSymbolExists.cxx.o -c "/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx"
+/Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: use of undeclared identifier 'Q_WS_QWS'
+  return ((int*)(&Q_WS_QWS))[argc];
+                  ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_d4b71.dir/CheckSymbolExists.cxx.o] Error 1
+make: *** [cmTC_d4b71/fast] Error 2
+
+File /Users/rcambier/Dropbox/Q8/Verification/DIVINE/divine-3.3.2 2/_build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_QWS
+  return ((int*)(&Q_WS_QWS))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
