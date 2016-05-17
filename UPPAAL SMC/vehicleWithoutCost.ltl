@@ -1,0 +1,2 @@
+#define end1 (Process.end)
+#property EF(end1)
