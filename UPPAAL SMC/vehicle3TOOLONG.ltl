@@ -1,0 +1,14 @@
+#define end (Process.end)
+#define s_0 (v1 < 0) 
+#define b_0 (battery < 0) 
+#define s_1 (v1 > 8)
+#define b_1 (battery > 9000) 
+
+
+
+#property G!(end)
+#property G(F(end)) 
+#property !F(s_0) 
+#property !F(b_0)
+#property !F(s_1)
+#property !F(b_1)
