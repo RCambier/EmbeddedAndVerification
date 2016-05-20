@@ -1,0 +1,21 @@
+#define end (Process.end)
+#define s_0 (v1 < 0) 
+#define b_0 (battery < 0) 
+#define s_1 (v1 > 8)
+#define b_1 (battery > 9000) 
+#define initval (battery == 9000 && v1==0) 
+#define speed (Process.speed2 || Process.speed4 || Process.speed6 || Process.speed8)
+
+
+#property G!(end)
+#property G(F(end)) 
+#property !F(s_0) 
+#property !F(b_0)
+#property !F(s_1)
+#property !F(b_1)
+#property O(speed)==Process.sectionEnd
+#property O(O(Process.Start)==Process.sectionEnd
+#property Process.Start->(v1==v0)
+#property initval U Process.sectionEnd
+#property F(G(O(Process.Start)==Process.speed2))
+
