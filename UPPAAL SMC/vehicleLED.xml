@@ -25,7 +25,7 @@ chan led;
 chan ledOff;
 chan batterySync;</declaration>
 	<template>
-		<name x="5" y="5">Template</name>
+		<name x="5" y="5">Vehicle</name>
 		<declaration>//rem: int_max = 32767
 
 
@@ -281,10 +281,10 @@ battery &lt; 66*batteryInit/100</label>
 		</transition>
 	</template>
 	<system>// Place template instantiations here.
-Process = Template();
+
 
 // List one or more processes to be composed into a system.
-system Process, Led;</system>
+system Vehicle, Led;</system>
 	<queries>
 	</queries>
 </nta>
