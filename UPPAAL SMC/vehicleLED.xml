@@ -164,13 +164,13 @@ int Speed(int v){
 		<name>Led</name>
 		<declaration>clock ledTime;</declaration>
 		<location id="id8" x="34" y="-561">
-			<name x="17" y="-612">HIGH</name>
+			<name x="17" y="-612">GREEN</name>
 		</location>
 		<location id="id9" x="34" y="170">
-			<name x="51" y="187">LOW</name>
+			<name x="51" y="187">RED</name>
 		</location>
 		<location id="id10" x="25" y="-204">
-			<name x="68" y="-221">MEDIUM</name>
+			<name x="68" y="-221">ORANGE</name>
 		</location>
 		<location id="id11" x="-510" y="-204">
 			<name x="-561" y="-212">OFF</name>
