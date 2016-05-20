@@ -60,6 +60,7 @@ int Speed(int v){
 	}
 }</declaration>
 		<location id="id0" x="-195" y="-59">
+			<name x="-205" y="-93">OFF</name>
 			<urgent/>
 		</location>
 		<location id="id1" x="-64" y="-64">
