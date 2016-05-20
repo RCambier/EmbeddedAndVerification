@@ -1,12 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
-<nta>
-	<declaration>// Place global declarations here.
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'><nta><declaration>// Place global declarations here.
 clock time;
-const int sectionNbr = 9;
-const int Lengths[9] =  {61,275,393,713,556,485,713,556,485};
-const int Height[9] = {10,-8,67,-7,-24,124,100,28,45};
-const int pc_battery = 50;
+const int sectionNbr = 3;
+const int Lengths[3] =  {61,187,294};
+const int Height[3] = {10,-8,59};
+const int pc_battery = 80;
 
 
 int[0, 30] v0 = 0;
@@ -18,15 +15,7 @@ const int batteryInit = 9000; //en centaine de joules (900kJ=250Wh)
 int battery = 9000;
 
 
-int lastSection = 0;
-
-
-chan led;
-chan ledOff;
-chan batterySync;</declaration>
-	<template>
-		<name x="5" y="5">Template</name>
-		<declaration>//rem: int_max = 32767
+int lastSection = 0;</declaration><template><name x="5" y="5">Template</name><declaration>//rem: int_max = 32767
 
 
 //max heigth: 3640
@@ -58,228 +47,8 @@ int Speed(int v){
 	else{
 		return maxSpeed;
 	}
-}</declaration>
-		<location id="id0" x="-195" y="-59">
-			<urgent/>
-		</location>
-		<location id="id1" x="-64" y="-64">
-			<name x="-112" y="-80">Start</name>
-			<urgent/>
-		</location>
-		<location id="id2" x="1168" y="-64">
-			<name x="1158" y="-94">end</name>
-			<label kind="invariant" x="1136" y="-48">battery&gt;pc_battery*batteryInit/100</label>
-			<urgent/>
-		</location>
-		<location id="id3" x="848" y="-64">
-			<name x="864" y="-96">sectionEnd</name>
-			<urgent/>
-		</location>
-		<location id="id4" x="152" y="200">
-			<name x="136" y="160">speed2</name>
-		</location>
-		<location id="id5" x="152" y="0">
-			<name x="142" y="-30">speed4</name>
-		</location>
-		<location id="id6" x="144" y="-160">
-			<name x="134" y="-190">speed6</name>
-		</location>
-		<location id="id7" x="152" y="-328">
-			<name x="142" y="-358">speed8</name>
-		</location>
-		<init ref="id0"/>
-		<transition>
-			<source ref="id0"/>
-			<target ref="id1"/>
-			<label kind="synchronisation" x="-177" y="-78">led!</label>
-		</transition>
-		<transition>
-			<source ref="id1"/>
-			<target ref="id4"/>
-			<label kind="assignment" x="56" y="72">v1 =  2</label>
-		</transition>
-		<transition>
-			<source ref="id1"/>
-			<target ref="id5"/>
-			<label kind="assignment" x="48" y="-48">v1 = 4</label>
-		</transition>
-		<transition>
-			<source ref="id1"/>
-			<target ref="id6"/>
-			<label kind="assignment" x="32" y="-112">v1 = 6</label>
-		</transition>
-		<transition>
-			<source ref="id1"/>
-			<target ref="id7"/>
-			<label kind="assignment" x="32" y="-248">v1 =8</label>
-		</transition>
-		<transition>
-			<source ref="id4"/>
-			<target ref="id3"/>
-			<label kind="guard" x="376" y="176">time &gt; Lengths[count]/v1</label>
-			<label kind="synchronisation" x="722" y="93">batterySync!</label>
-			<label kind="assignment" x="312" y="208">battery -= batteryCost(v1,v0,Height[count], Lengths[count])</label>
-			<nail x="720" y="200"/>
-		</transition>
-		<transition>
-			<source ref="id3"/>
-			<target ref="id2"/>
-			<label kind="guard" x="928" y="-56">count == sectionNbr -1</label>
-			<label kind="synchronisation" x="969" y="-85">ledOff!</label>
-		</transition>
-		<transition>
-			<source ref="id3"/>
-			<target ref="id1"/>
-			<label kind="guard" x="384" y="-472">count &lt; sectionNbr-1</label>
-			<label kind="assignment" x="376" y="-488">count ++, time = 0, v0=v1</label>
-			<nail x="848" y="-448"/>
-			<nail x="-72" y="-440"/>
-		</transition>
-		<transition>
-			<source ref="id7"/>
-			<target ref="id3"/>
-			<label kind="guard" x="368" y="-360">time &gt; Lengths[count]/v1</label>
-			<label kind="synchronisation" x="731" y="-229">batterySync!</label>
-			<label kind="assignment" x="288" y="-320">battery -= batteryCost(v1,v0,Height[count], Lengths[count])</label>
-			<nail x="728" y="-328"/>
-		</transition>
-		<transition>
-			<source ref="id6"/>
-			<target ref="id3"/>
-			<label kind="guard" x="376" y="-184">time &gt; Lengths[count]/v1</label>
-			<label kind="synchronisation" x="722" y="-136">batterySync!</label>
-			<label kind="assignment" x="256" y="-152">battery -= batteryCost(v1,v0,Height[count], Lengths[count])</label>
-			<nail x="720" y="-160"/>
-		</transition>
-		<transition>
-			<source ref="id5"/>
-			<target ref="id3"/>
-			<label kind="guard" x="376" y="-24">time &gt; Lengths[count]/v1</label>
-			<label kind="synchronisation" x="722" y="-34">batterySync!</label>
-			<label kind="assignment" x="304" y="8">battery -= batteryCost(v1,v0,Height[count], Lengths[count])</label>
-			<nail x="728" y="0"/>
-		</transition>
-	</template>
-	<template>
-		<name>Led</name>
-		<declaration>clock ledTime;</declaration>
-		<location id="id8" x="34" y="-561">
-			<name x="17" y="-612">HIGH</name>
-		</location>
-		<location id="id9" x="34" y="170">
-			<name x="51" y="187">LOW</name>
-		</location>
-		<location id="id10" x="25" y="-204">
-			<name x="68" y="-221">MEDIUM</name>
-		</location>
-		<location id="id11" x="-510" y="-204">
-			<name x="-561" y="-212">OFF</name>
-		</location>
-		<init ref="id11"/>
-		<transition>
-			<source ref="id9"/>
-			<target ref="id9"/>
-			<label kind="guard" x="161" y="196">battery &lt; 33*batteryInit/100</label>
-			<label kind="synchronisation" x="153" y="179">batterySync?</label>
-			<nail x="178" y="145"/>
-			<nail x="153" y="238"/>
-		</transition>
-		<transition>
-			<source ref="id10"/>
-			<target ref="id10"/>
-			<label kind="guard" x="246" y="-229">battery &gt; 33*batteryInit/100 &amp;&amp; 
-battery &lt; 66*batteryInit/100</label>
-			<label kind="synchronisation" x="246" y="-246">batterySync?</label>
-			<nail x="238" y="-255"/>
-			<nail x="238" y="-153"/>
-		</transition>
-		<transition>
-			<source ref="id8"/>
-			<target ref="id8"/>
-			<label kind="guard" x="187" y="-595">battery &gt; 66*batteryInit/100</label>
-			<label kind="synchronisation" x="178" y="-612">batterySync?</label>
-			<nail x="195" y="-638"/>
-			<nail x="187" y="-527"/>
-		</transition>
-		<transition>
-			<source ref="id9"/>
-			<target ref="id10"/>
-			<label kind="guard" x="-119" y="-42">battery &gt; 33*batteryInit/100 &amp;&amp; 
-battery &lt; 66*batteryInit/100</label>
-			<label kind="synchronisation" x="-119" y="-59">batterySync?</label>
-			<nail x="-8" y="119"/>
-			<nail x="-8" y="-144"/>
-		</transition>
-		<transition>
-			<source ref="id10"/>
-			<target ref="id9"/>
-			<label kind="guard" x="127" y="-51">battery &lt; 33*batteryInit/100</label>
-			<label kind="synchronisation" x="119" y="-68">batterySync?</label>
-			<nail x="119" y="-170"/>
-			<nail x="119" y="111"/>
-		</transition>
-		<transition>
-			<source ref="id10"/>
-			<target ref="id8"/>
-			<label kind="guard" x="93" y="-433">battery &gt; 66*batteryInit/100</label>
-			<label kind="synchronisation" x="102" y="-416">batterySync?</label>
-			<nail x="76" y="-289"/>
-			<nail x="85" y="-484"/>
-		</transition>
-		<transition>
-			<source ref="id8"/>
-			<target ref="id10"/>
-			<label kind="guard" x="-153" y="-348">battery &gt; 33*batteryInit/100 &amp;&amp; 
-battery &lt; 66*batteryInit/100</label>
-			<label kind="synchronisation" x="-153" y="-365">batterySync?</label>
-			<nail x="-34" y="-493"/>
-			<nail x="-34" y="-297"/>
-		</transition>
-		<transition>
-			<source ref="id9"/>
-			<target ref="id11"/>
-			<label kind="synchronisation" x="-348" y="-85">ledOff?</label>
-			<nail x="8" y="170"/>
-		</transition>
-		<transition>
-			<source ref="id11"/>
-			<target ref="id9"/>
-			<label kind="synchronisation" x="-433" y="-34">led?</label>
-			<nail x="-510" y="-119"/>
-			<nail x="-51" y="196"/>
-		</transition>
-		<transition>
-			<source ref="id8"/>
-			<target ref="id11"/>
-			<label kind="synchronisation" x="-382" y="-348">ledOff ?</label>
-		</transition>
-		<transition>
-			<source ref="id11"/>
-			<target ref="id8"/>
-			<label kind="synchronisation" x="-408" y="-416">led?</label>
-			<nail x="-493" y="-297"/>
-			<nail x="-59" y="-587"/>
-		</transition>
-		<transition>
-			<source ref="id10"/>
-			<target ref="id11"/>
-			<label kind="synchronisation" x="-357" y="-178">ledOff?</label>
-			<nail x="-51" y="-161"/>
-			<nail x="-433" y="-161"/>
-		</transition>
-		<transition>
-			<source ref="id11"/>
-			<target ref="id10"/>
-			<label kind="synchronisation" x="-357" y="-255">led?</label>
-			<nail x="-433" y="-229"/>
-			<nail x="-51" y="-229"/>
-		</transition>
-	</template>
-	<system>// Place template instantiations here.
+}</declaration><location id="id0" x="-64" y="-64"><name x="-112" y="-80">Start</name><label kind="invariant" x="-74" y="-49">time &lt;= 0</label><urgent/></location><location id="id1" x="1168" y="-64"><name x="1158" y="-94">end</name><label kind="invariant" x="1136" y="-48">battery&gt;pc_battery*batteryInit/100</label><urgent/></location><location id="id2" x="848" y="-64"><name x="864" y="-96">sectionEnd</name><urgent/></location><location id="id3" x="152" y="200"><name x="136" y="160">speed2</name></location><location id="id4" x="152" y="0"><name x="142" y="-30">speed4</name></location><location id="id5" x="144" y="-160"><name x="134" y="-190">speed6</name></location><location id="id6" x="152" y="-328"><name x="142" y="-358">speed8</name></location><init ref="id0"/><transition><source ref="id0"/><target ref="id3"/><label kind="assignment" x="56" y="72">v1 =  2</label></transition><transition><source ref="id0"/><target ref="id4"/><label kind="assignment" x="48" y="-48">v1 = 4</label></transition><transition><source ref="id0"/><target ref="id5"/><label kind="assignment" x="32" y="-112">v1 = 6</label></transition><transition><source ref="id0"/><target ref="id6"/><label kind="assignment" x="32" y="-248">v1 =8</label></transition><transition><source ref="id3"/><target ref="id2"/><label kind="guard" x="376" y="176">time &gt; Lengths[count]/v1</label><label kind="assignment" x="312" y="208">battery -= batteryCost(v1,v0,Height[count], Lengths[count])</label><nail x="720" y="200"/></transition><transition><source ref="id2"/><target ref="id1"/><label kind="guard" x="928" y="-56">count == sectionNbr -1</label></transition><transition><source ref="id2"/><target ref="id0"/><label kind="guard" x="384" y="-472">count &lt; sectionNbr-1</label><label kind="assignment" x="376" y="-488">count ++, time = 0, v0=v1</label><nail x="848" y="-448"/><nail x="-72" y="-440"/></transition><transition><source ref="id6"/><target ref="id2"/><label kind="guard" x="368" y="-360">time &gt; Lengths[count]/v1</label><label kind="assignment" x="288" y="-320">battery -= batteryCost(v1,v0,Height[count], Lengths[count])</label><nail x="728" y="-328"/></transition><transition><source ref="id5"/><target ref="id2"/><label kind="guard" x="376" y="-184">time &gt; Lengths[count]/v1</label><label kind="assignment" x="256" y="-152">battery -= batteryCost(v1,v0,Height[count], Lengths[count])</label><nail x="720" y="-160"/></transition><transition><source ref="id4"/><target ref="id2"/><label kind="guard" x="376" y="-24">time &gt; Lengths[count]/v1</label><label kind="assignment" x="304" y="8">battery -= batteryCost(v1,v0,Height[count], Lengths[count])</label><nail x="728" y="0"/></transition></template><system>// Place template instantiations here.
 Process = Template();
 
 // List one or more processes to be composed into a system.
-system Process, Led;</system>
-	<queries>
-	</queries>
-</nta>
+system Process;</system></nta>
